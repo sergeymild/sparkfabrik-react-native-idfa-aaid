@@ -26,7 +26,7 @@ class ReactNativeIdfaAaidModule(private val reactContext: ReactApplicationContex
             ret.putBoolean("isAdTrackingLimited", false)
         } catch (e: Exception) {
             Log.e(this.getName(), "Failed to connect to Advertising ID provider.")
-            promise.reject("Error getting aaid.", e)
+            ret.putBoolean("isAdTrackingLimited", true)
         }
         promise.resolve(ret)
     }

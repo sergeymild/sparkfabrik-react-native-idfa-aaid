@@ -31,11 +31,20 @@ class ReactNativeIdfaAaid: NSObject {
                         ])
                     case .notDetermined:
                         // Tracking authorization dialog has not been shown
-                        reject("@track_not_determined", "Tracking not determined", nil)
+                        resolve([
+                            "id": nil,
+                            "isAdTrackingLimited": true
+                        ])
                     case .restricted:
-                        reject("@track_restricted", "Tracking restricted", nil)
+                        resolve([
+                            "id": nil,
+                            "isAdTrackingLimited": true
+                        ])
                     @unknown default:
-                        reject("@track_unknown", "Tracking unknown", nil)
+                        resolve([
+                            "id": nil,
+                            "isAdTrackingLimited": true
+                        ])
                 }
             }
         } else {
